@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); 
+@import "tailwindcss";
+
+@layer base {
+    :root {
+      --mau_nen_primary: #a3a380;
+      --mau_vang: #efebce;
+      --mau_den: #2f2f2f;
+      --mau_vang_nhat: rgba(239,235,206,0.5);
+      --mau_trang: #fff;
+      --mau_xam: #e1ebea;
+      --mau_vien_xam: #c4c4c4;
+      --mau_xanh:rgba(53,115,110,.3);
+      --mau_xam_footer:#6a6a6a;
+      --mau_do:#a6171a;
+    }
+}
+
+.bg__primary {
+    background-color: var(--mau_nen_primary);
+}
+
+.bg__vang_nhat {
+    background-color: var(--mau_vang_nhat);
+}
+
+.bg__header {
+    background-color: var(--mau_nen_primary);
+}
+
+.bg__hero {
+    background-color:var(--mau_nen_primary);
+}
+
+.bg__footer {
+    background-color: var(--mau_vang_nhat);
+}
+
+.mau__chu_footer {
+    color:var(--mau_xam_footer);
+}
+
+.text-mau_vang {
+    color: var(--mau_vang);
+}
+
+.text-mau_trang {
+    color:var(--mau_trang);
+}
+
+
+/* Menu desktop */
+.nav__link {
+	position: relative;
+
+}
+
+.nav__link a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+  
+.nav__link.active a {
+    color: var(--mau_vang); /* Màu vàng nhạt */    
+}
+
+.nav__link.active::after {
+    position:absolute;
+    content:'';
+    background-color: var(--mau_vang);
+    height: 4px;
+    width:100%;
+    left:0;
+    bottom:-8px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.nav__link::after {
+	position: absolute;
+	content: '';
+	left: 0px;
+	bottom: -8px;
+	height: 4px;
+	width: 0%;
+	border-radius: 0.75rem;
+    opacity: 1;
+	background-color: var(--mau_vang);
+	transition-duration: 300ms;
+}
+
+.nav__link:hover::after {
+	width: 100%;
+}
+
+.nav__link:hover {
+	color: var(--mau_vang);
+}
+
+/* Menu mobile */
+.hide__menu {
+    right:-100%; 
+}
+
+.sidebar__menu {
+   
+    position: fixed;	
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    top: 5rem;
+    width: 70%;
+    height: 100%;		
+    z-index: 1;
+    font-size: 32px;
+    background-color: #a3a380;
+    color: #fff;
+    text-align: center;
+    transition: right .4s ease;   
+}
+
+.show__menu {
+    right: 0;
+} 
+
+/* End menu mobile */
+
+/* Button */
+.btn__shopnow {
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.btn__shopnow:hover {
+    color: #fff;
+}
+
+.btn__shopnow::before {   
+    position: absolute;
+    content:'';
+    background-color:var(--mau_xam);
+    left: 0;
+    top: 0;
+    transform: skew(16deg);
+    width: 100%;
+    height: 100%;
+    transition:transform .4s cubic-bezier(0.3, 1, 0.8, 1),background-color .7s ease;
+}
+
+.btn__shopnow span {
+    position: relative;    
+    transition: .4s;
+}
+
+/* Thực hiện đổ màu */
+.btn__shopnow:hover::before {
+    transform: translate3d(100%,0,0);
+    color:var(--mau_trang);
+    background-color:var(--mau_xam);
+}
+
+.btn__shopnow:hover {
+    color: var(--mau_trang);
+    background-color: var(--mau_vang_nhat);    
+}
+
+.btn__shopnow-arrow {
+    position: absolute;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: opacity .4s ease, transform .7s cubic-bezier(0.3, 1, 0.8, 1);
+    right: 0;
+    top: 34%;
+    margin-bottom:8px;
+}
+
+.btn__shopnow:hover .btn__shopnow-arrow {
+    opacity: 1;
+    transform: translateX(-8px);
+}
+
+.btn__explore {
+    position: relative;
+    overflow: hidden;
+    transition: color .8s ease;    
+}
+
+.btn__explore::before {
+    position: absolute;
+    content: '';
+    background-color: transparent;
+    left: -10%;
+    top: 0;
+    width: 120%;
+    height: 100%;
+    transform: skew(16deg);
+    transition:transform .7s cubic-bezier(0.3, 1, 0.8, 1), background-color .7s ease;
+    outline: none;
+}
+
+.btn__explore:hover {
+    color:#fff;
+}
+
+.btn__explore:hover::before {
+    transform: translate3d(100%, 0, 0);
+    background-color:#fff;
+}
+
+.explore__arrow {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity .7s ease, transform .7s cubic-bezier(0.3, 1, 0.8, 1);
+    top: 34%;
+    right: 0;
+}
+
+.explore__arrow span { 
+    position: relative;
+}
+
+.btn__explore:hover .explore__arrow {
+    opacity: 1;
+    transform: translateX(-4px);
+}
+
+/* End button */
+
+.menu__mobile {
+    position:absolute;
+    top:4rem;
+    right:0;
+    width:70%;
+    height:100vh;
+    background-color:rgba(163,163,128,1);
+    display:hidden;
+    opacity:0; 
+    z-index:1
+}
+
+.navigation {
+    position:absolute;
+    top:10rem;
+    left:10%;
+    overflow:hidden;    
+}
+
+.navigation li {
+    margin-bottom:32px;
+}
+
+.navigation li a{
+    font-family: Inter, sans-serif;
+    color: #fff;
+}
+
+
+/* Ghế */
+
+.crafted__chair {
+    display:relative;
+}
+
+
+.crafted__chair::after {    
+    content:'';
+    width:100%;
+    height: 400px;
+    position: absolute;
+    bottom:0;
+    border-radius: 1rem;
+    transition:background-color .3s;
+    background-color:var(--mau_trang);    
+}
+
+.crafted__chair:hover::after {
+	z-index: 0;
+	cursor: pointer;
+	opacity: 1;
+	background-color:var(--mau_xam);
+}
+
+.crafted__chair:hover .chair__plus {
+	cursor: pointer;
+	opacity: 1;
+	transition-duration: .3s;
+}
+
+.bg_chair1::after, .bg_chair2::after,.bg_chair3::after {
+    position: absolute;
+	bottom: 1rem;
+	left: 0px;
+	z-index: 0;
+	height: 66.666667%;
+	width: 100%;
+	border-radius: 0.75rem;
+    content:'';
+}
+
+.bg_chair1::after,.bg_chair3::after {
+    background-color:var(--mau_xam);
+}
+
+.bg_chair2::after {
+    background-color:var(--mau_xanh);
+}
+
+/* End ghế */
+
+/* Swiper */
+
+.swiper {
+    margin-inline:initial;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after  {
+   font-size: 16px;
+   font-weight: bold;
+}
+
+.swiper-navigation-size {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    top: 10%;  
+    font-size: 1rem;
+    color: var(--mau_den) !important;  
+    border: none;
+    border-radius: 50% !important;  
+    width:48px !important;
+    height:48px !important;    
+    background-color:var(--mau_xam);
+    transition: background-color .5s, color .5s;
+    cursor: pointer !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(163,163,128,1) !important;
+    color: var(--mau_trang) !important;
+    cursor:pointer;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size:16px !important;
+    font-weight:bold !important;
+}
+
+.swiper-pagination-bullet-active {
+    background:rgba(163,163,128,1) !important;
+}
+
+.swiper-wrapper{
+    padding-bottom: 40px;
+} 
+
+/* End Swiper Slide */
+
+.gio__hang::after {
+    
+}
+
+
+/* Footer */
+
+.link__social {
+    position: relative;
+    /* color: var(--mau_xam_footer); */
+}
+
+.link__social:hover {
+    color:var(--mau_den);
+}
+
+.link__social::after {
+    position:absolute;
+    content:'';
+    bottom:-8px;
+    left:0;
+    border-radius:8px;
+    background-color:var(--mau_xanh);
+    height:4px;
+    width:0px;
+    transition:.3s;
+}
+
+.link__social:hover::after {
+    width:100%;
+}
+
+/* Gio hang */
+.cart_remove {
+    background-color:var(--mau_do);
+}
