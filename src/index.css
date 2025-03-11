@@ -16,6 +16,7 @@
     }
 }
 
+
 .bg__primary {
     background-color: var(--mau_nen_primary);
 }
@@ -373,7 +374,6 @@
 
 .link__social {
     position: relative;
-    /* color: var(--mau_xam_footer); */
 }
 
 .link__social:hover {

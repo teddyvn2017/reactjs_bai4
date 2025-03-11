@@ -76,7 +76,7 @@ const Header = () => {
       };
 
     return (
-        <section className="bg__header w-full h-auto pb-8">
+        <section className="bg-primary w-full h-auto pb-8">
             {/* <Router> */}
                 <nav className="fixed left-0 top-0 bg__header w-full z-20 shadow-md">
                     <div className="container flex items-center justify-between md:flex-row h-16 max-w-[1280px] mx-auto px-4">
@@ -134,7 +134,7 @@ const Header = () => {
                             <a href="/dang-nhap">
                                 <BsPersonCircle />
                             </a>
-                            <CartIcon cartCount={1} />  
+                            <CartIcon />  
                         </div>
                     </div>
                     
