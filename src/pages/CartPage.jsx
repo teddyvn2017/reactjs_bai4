@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout';
 import useCart from '../hooks/useCart'; // Import useCart
 
 const CartPage = () => {
-    const { cart,removeItem } = useCart(); // Lấy cart từ context
+
+    const { cart,removeItem,updateQuantity } = useCart(); // Lấy cart từ context
 
     useEffect(() => {
         document.title = "Giỏ hàng - FuniExpet";
@@ -18,8 +19,6 @@ const CartPage = () => {
         }
     },);
 
-
-
     return (
         <Layout>
             <section className="mt-12 py-16">
@@ -29,16 +28,20 @@ const CartPage = () => {
                         <table className="w-full border border-gray-200 shadow-md rounded-lg">
                             <thead className="border-b">
                                 <tr className="bg-gray-100 text-left text-gray-700">
-                                    <th className="p-4">Product</th>
-                                    <th className="p-4">Price</th>
-                                    <th className="p-4">Quantity</th>
-                                    <th className="p-4">Total</th>
-                                    <th className="p-4 text-center">Actions</th>
+                                    <th className="p-4">#</th>
+                                    <th className="p-4">Tên sản phẩm</th>
+                                    <th className="p-4">Đơn giá</th>
+                                    <th className="p-4">Số lượng</th>
+                                    <th className="p-4">Thành tiền</th>
+                                    <th className="p-4 text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-400 px-8">
-                                {cart.map((item) => (
+                                {/* thứ tự bắt buộc item trước sau đó là index - vị trí của phần tử trong mảng */}
+                                {cart.map((item,index) => (
                                     <tr key={item.id} className="border-t border-gray-300">
+                                        {/* Số thứ tự giỏ hàng*/}
+                                        <td className="p-4">{index + 1}</td>
                                         <td className="p-4 flex items-center space-x-4 px-8">
                                             <img src={item.image} alt={item.name} className="w-12 h-12 rounded-md" />
                                             <span>{item.name}</span>
@@ -47,13 +50,13 @@ const CartPage = () => {
                                         <td className="p-4">
                                             <input
                                                 type="number"
-                                                min="1"
-                                                
+                                                min="1"                                                
                                                 value={item.quantity} // Giả sử item có thuộc tính quantity
+                                                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
                                                 className="w-12 border rounded p-1 text-center"
                                             />
                                         </td>
-                                        <td className="p-4 font-semibold">${item.price * item.quantity}</td> {/* Giả sử item có thuộc tính quantity */}
+                                        <td className="p-4 font-semibold">${(item.price*item.quantity).toFixed(2)}</td> {/* Giả sử item có thuộc tính quantity */}
                                         <td className="p-4 text-center">
                                             <button className="bg__primary text-white px-4 py-2 rounded hover:bg__vang_nhat hover:cursor-pointer text-base"                                            
                                                 //onClick={removeItem(item.id)} phải dùng arrow function
