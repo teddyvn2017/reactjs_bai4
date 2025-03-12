@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext"; // ✅ Chỉ import cần thiết
-
+// import gsap from "gsap";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import BlogPage from "./pages/BlogPage";
@@ -12,6 +12,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CartPage from "./pages/CartPage";
 
 function App() {
+
     return (
         <Router>
             <CartProvider> {/* ✅ CartProvider bọc toàn bộ ứng dụng */}
