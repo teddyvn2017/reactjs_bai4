@@ -2,6 +2,10 @@ import React from 'react'
 import ghe8 from '../assets/img/ghe8.png'
 import envelope from '../assets/img/envelope.png'
 import plane from '../assets/img/plane.png'
+import { BsYoutube, BsFacebook, BsTwitter } from "react-icons/bs";
+
+// link truy cập icon
+// https://react-icons.github.io/react-icons/
 
 const Footer = () => {
   return (
@@ -41,20 +45,20 @@ const Footer = () => {
                     
                     <div className="lg:col-span-9 col-span-12">
                         
-                        <div className="grid gap-8 md:grid-cols-12 xs:grid-cols-12">
+                        <div className="grid gap-8 md:grid-cols-12 xs:grid-cols-12 font-semibold text-base">
                             <div className="xs:col-span-6 md:col-span-6 lg:col-span-3 col-span-12">
                                 <ul className="flex flex-col gap-4 text-mau_desc">
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">About us</a>
+                                        <a href="#" className="link__social">About us</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Services</a>
+                                        <a href="#" className="link__social">Services</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Blog</a>
+                                        <a href="#" className="link__social">Blog</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Contact us</a>
+                                        <a href="#" className="link__social">Contact us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -62,13 +66,13 @@ const Footer = () => {
                             <div className="xs:col-span-6 md:col-span-6 lg:col-span-3 col-span-12">
                                 <ul className="flex flex-col gap-4 text-mau_desc">
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Support</a>
+                                        <a href="#" className="link__social">Support</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Knowledge base</a>
+                                        <a href="#" className="link__social">Knowledge base</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Live chat</a>
+                                        <a href="#" className="link__social">Live chat</a>
                                     </li>                               
                                 </ul>
                             </div>
@@ -76,30 +80,30 @@ const Footer = () => {
                             <div className="xs:col-span-6 md:col-span-6 lg:col-span-3 col-span-12">
                                 <ul className="flex flex-col gap-4 text-mau_desc">
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Job</a>
+                                        <a href="#" className="link__social">Job</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Our team</a>
+                                        <a href="#" className="link__social">Our team</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Leadership</a>
+                                        <a href="#" className="link__social">Leadership</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Privacy Policy</a>
+                                        <a href="#" className="link__social">Privacy Policy</a>
                                     </li>
                                 </ul>
                             </div>
     
                             <div className="xs:col-span-6 md:col-span-6 lg:col-span-3 col-span-12">
-                                <ul className="flex flex-col gap-4 text-mau_desc">
+                                <ul className="flex flex-row gap-8 text-mau_desc text-xl">
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Nordic Chair</a>
+                                        <a href="#"><BsYoutube /></a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Kruzo Aero</a>
+                                        <a href="#"><BsFacebook /></a>
                                     </li>
                                     <li>
-                                        <a href="#" className="link__social font-semibold text-base">Ergonomic</a>
+                                        <a href="#"><BsTwitter /></a>
                                     </li>                                
                                 </ul>
                             </div>
@@ -127,7 +131,7 @@ const Footer = () => {
             </a>
         </div>
 
-        <div className="container mt-[1rem] max-w-[1280px]  mx-auto px-4">
+        <div className="container mt-[1rem] max-w-[1280px] mx-auto px-4">
             <hr className="border-mau_den border-y-1" />
         </div>
 

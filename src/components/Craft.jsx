@@ -10,7 +10,7 @@ const Craft = () => {
     const { addToCart } = useCart(); // Lấy addToCart từ context
     const sectionRefCraft = useRef(null);
     const itemRefsCraft = useRef([]);
-   
+    
     useEffect(() => {
         const items = itemRefsCraft.current;
         gsap.fromTo(
@@ -22,7 +22,7 @@ const Craft = () => {
                 stagger:0.2,
                 ease: 'power3.out',
                 scrollTrigger:{
-                    trigger:sectionRefCraft.current,
+                    trigger:sectionRefCraft.current, //viewport : 
                     start: 'top 80%',
                     end: 'top 30%',
                     toggleActions: 'play none none reverse',
@@ -71,7 +71,8 @@ const Craft = () => {
 
     return (
         <section ref ={sectionRefCraft} className="mt-12 py-16">
-            <div className="grid container mx-auto px-4 lg:grid-cols-12 md:grid-cols-6 gap-10 overflow-hidden justify-center items-center max-w-[1280px]">
+            <div className="grid container mx-auto px-4 lg:grid-cols-12 md:grid-cols-6 gap-8 overflow-hidden justify-center items-center max-w-[1280px]">
+                
                 <div className="col-span-3 md:col-span-3 intro-craft">
                     <h1 className="text-3xl text-title font-semibold text-wrap text-left">Crafted with excellent material.</h1>
                     <p className="mt-4 text-mau_desc text-xl text-left">
@@ -84,10 +85,11 @@ const Craft = () => {
                     </div>
                 </div>
 
+                {/* Arrow function for array - ES6 */}
                 {products.map((product,index) => (
                     <div key={product.id} 
                         ref={(el) => (itemRefsCraft.current[index] = el)}
-                        className="col-span-3 md:col-span-3 py-16" onClick={() => addToCart(product)}>
+                        className="col-span-3 md:col-span-3 py-2" onClick={() => addToCart(product)}>
                         <div className="flex flex-col justify-center items-center relative crafted__chair">
                             <img src={product.image} alt="image" className="z-10 duration-500 transition-all hover:scale-95 cursor-pointer hover:-translate-y-2" />
                             <div className="justify-self-end text-center pt-2 font-bold z-10 mt-8 pb-8">

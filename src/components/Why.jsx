@@ -18,7 +18,7 @@ const Why = () => {
 
     const itemRefsWhy = useRef([]);
     const imgRefWhy = useRef();
-    
+    const sectionRefWhy = useRef(null);
     useEffect(() => {
 
         gsap.fromTo(
@@ -39,47 +39,43 @@ const Why = () => {
         );
 
         gsap.fromTo(
-                itemRefsWhy.current, 
-                { opacity:0,y:100 },
-                {
-                    opacity:1,
-                    y:0,
-                    duration:2,
-                    stagger:0.2,
-                    ease: 'power3.out',
-                    scrollTrigger:{
-                        trigger:'.benefits-why',
-                        start: 'top 80%',
-                        end: 'top 30%',
-                        toggleActions: 'play none none reverse',
-                    }
-
+            itemRefsWhy.current, 
+            { opacity:0,y:100 },
+            {
+                opacity:1,
+                y:0,
+                duration:2,
+                stagger:0.2,
+                ease: 'power3.out',
+                scrollTrigger:{
+                    trigger:'.benefits-why',
+                    start: 'top 80%',
+                    end: 'top 30%',
+                    toggleActions: 'play none none reverse',
                 }
+            }
         );
 
         gsap.fromTo(
             imgRefWhy.current, 
-            { x:'100%' },
-            {
-                
+            { x: '100%' },
+            {                
                 x:'0%',
                 duration:2.5,
                 stagger:0.2,
                 ease: 'power3.out',
                 scrollTrigger:{
-                    trigger:'.img-why',
+                    trigger:'.sectionRefWhy',
                     start: 'top 80%',
                     end: 'top 30%',
                     toggleActions: 'play none none reverse',
                 }
-
             }
         );
     }, []);
 
-
     return (
-        <section className="mt-16">
+        <section className="mt-16 sectionRefWhy overflow-hidden">
             <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-12 max-w-[1280px]">            
                 <div className="flex-col basis-2/4 lg:text-left">
                     <div className='why-intro' >
@@ -89,8 +85,6 @@ const Why = () => {
                     <div className="grid md:grid-cols-2 mt-8 gap-8 justify-center items-center">
                         {
                             benefits.map((item, index) => (
-
-                           
                             <div 
                                 key = {index} 
                                 ref = {(el) => (itemRefsWhy.current[index] = el) }
@@ -100,8 +94,6 @@ const Why = () => {
                                 <h3 className="font-semibold text-title text-[1.25rem] mb-2">{item.title}</h3>
                                 <p className="text-[1rem] text-desc">{item.desc}</p>
                             </div>
-
-                             
                         ))}                        
                     </div>
                 </div>
@@ -118,4 +110,3 @@ const Why = () => {
 }
 
 export default Why;
-

@@ -130,7 +130,7 @@ const Header = () => {
                             </nav>
                         </div>
                     
-                        <div className="flex flex-row justify-center items-center gap-[28px] text-2xl text-mau_trang">
+                        <div className="flex-row justify-center items-center gap-[28px] text-2xl text-mau_trang hidden md:flex">
                             <a href="/dang-nhap">
                                 <BsPersonCircle />
                             </a>

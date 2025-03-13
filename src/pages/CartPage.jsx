@@ -6,6 +6,7 @@ const CartPage = () => {
 
     const { cart,removeItem,updateQuantity } = useCart(); // Lấy cart từ context
 
+    //SEO
     useEffect(() => {
         document.title = "Giỏ hàng - FuniExpet";
         const metaDesc = document.querySelector('meta[name="description"]');

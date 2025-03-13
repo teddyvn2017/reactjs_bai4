@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+    //get, set
     const [cart, setCart] = useState(() => {
         try {
             const savedCart = localStorage.getItem("cart");
@@ -13,6 +14,7 @@ export const CartProvider = ({ children }) => {
         }
     });
 
+    //side effect
     useEffect(() => {
         try {
             const currentCart = JSON.stringify(cart);
@@ -26,6 +28,7 @@ export const CartProvider = ({ children }) => {
         }
     }, [cart]);
 
+    //thêm sản phẩm giỏ hàng
     const addToCart = (product) => {
         setCart((prevCart) => {
 
@@ -38,10 +41,7 @@ export const CartProvider = ({ children }) => {
                     index = existingProductIndex ? {...item, quantity: item.quantity + 1} : item
                 });
             }
-            // const updatedCart = [...prevCart, product];
-            // console.log("Giỏ hàng sau khi thêm sản phẩm:", updatedCart);
-            // return updatedCart;
-
+            
             else {
                 // Nếu sản phẩm chưa có, thêm với quantity = 1
                 return [...prevCart, { ...product, quantity: 1 }];
@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
 
     // Hàm xóa sản phẩm khỏi giỏ hàng
     const removeItem = (id) => {    
-        // console.log(id);
+       
         setCart((prevCart) => {
             //sao chép mảng mới không chứa item.id đã xóa khỏi giỏ hàng            
             const updatedCart = prevCart.filter((item) => item.id !== id);
