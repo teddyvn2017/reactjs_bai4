@@ -75,7 +75,8 @@ const Why = () => {
     }, []);
 
     return (
-        <section className="mt-16 sectionRefWhy overflow-hidden">
+        // thêm class overflow-hidden để tránh tạo horizontal scroll trong section
+        <section className="mt-16 sectionRefWhy overflow-hidden">  
             <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-12 max-w-[1280px]">            
                 <div className="flex-col basis-2/4 lg:text-left">
                     <div className='why-intro' >
